@@ -47,20 +47,104 @@ $faq = [
 // var_dump($faq);
 // echo '</pre>';
 
-foreach ($faq as $gruppi) {
-    // echo '<pre>';
-    // var_dump($gruppi['domanda']);
-    // echo '</pre>';
-    echo "<h1>$gruppi[domanda]</h1>";
-    if (is_string($gruppi['risposta'])){
-        echo "<p>$gruppi[risposta]</p>";
-    }
-    else {
-        foreach ($gruppi['risposta'] as $key => $value) {
-            echo "<p>$value</p>";
-            // echo "<p>$key[punto1]</p>";
-        }
-    }
-}
+// foreach ($faq as $gruppi) {
+//     // echo '<pre>';
+//     // var_dump($gruppi['domanda']);
+//     // echo '</pre>';
+//     echo "<h1>$gruppi[domanda]</h1>";
+//     if (is_string($gruppi['risposta'])){
+//         echo "<p>$gruppi[risposta]</p>";
+//     }
+//     else {
+//         foreach ($gruppi['risposta'] as $key => $value) {
+//             echo "<p>$value</p>";
+//             // echo "<p>$key[punto1]</p>";
+//         }
+//     }
+// }
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy e termini</title>
+</head>
+<body>
+    <header>
+        <div class="flex">
+            <div>
+                <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_74x24dp.png" alt="google logo">
+            </div>
+            <div>
+                PROFILO
+            </div>
+        </div>
+        <div class="span-cont">
+            <span>Introduzione</span>
+            <span>Norme sulla privacy</span>
+            <span>Termini di servizio</span>
+            <span>Tecnologie</span>
+            <span class="active">Domande frequenti</span>
+        </div>
+        <hr>
+        <div class="container">
+            <?php
+                foreach ($faq as $gruppi) {
+                    // echo '<pre>';
+                    // var_dump($gruppi['domanda']);
+                    // echo '</pre>';
+                    echo "<h2>$gruppi[domanda]</h2>";
+                    if (is_string($gruppi['risposta'])){
+                        echo "<p>$gruppi[risposta]</p>";
+                    }
+                    else {
+                        foreach ($gruppi['risposta'] as $key => $value) {
+                            echo "<p>$value</p>";
+                            // echo "<p>$key[punto1]</p>";
+                        }
+                    }
+                }
+            ?>
+        </div>
+    </header>
+</body>
+</html>
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        color: #707478;
+    }
+    .flex{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 95%;
+        margin: 10px auto;
+    }
+    .container{
+        width: 60%;
+        margin: 60px auto;
+    }
+    h2{
+        margin: 20px 0;
+        color: #3C4043;
+    }
+    .span-cont{
+        width: 95%;
+        margin: 10px auto;
+    }
+    span{
+        margin-right: 10px;
+        font-size: 1.1rem;
+    }
+    .active{
+        color: #3367D6;
+    }
+</style>
