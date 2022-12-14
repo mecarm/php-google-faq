@@ -43,26 +43,6 @@ $faq = [
     ],
 ];
 
-// echo '<pre>';
-// var_dump($faq);
-// echo '</pre>';
-
-// foreach ($faq as $gruppi) {
-//     // echo '<pre>';
-//     // var_dump($gruppi['domanda']);
-//     // echo '</pre>';
-//     echo "<h1>$gruppi[domanda]</h1>";
-//     if (is_string($gruppi['risposta'])){
-//         echo "<p>$gruppi[risposta]</p>";
-//     }
-//     else {
-//         foreach ($gruppi['risposta'] as $key => $value) {
-//             echo "<p>$value</p>";
-//             // echo "<p>$key[punto1]</p>";
-//         }
-//     }
-// }
-
 ?>
 
 <!DOCTYPE html>
@@ -93,18 +73,18 @@ $faq = [
         <hr>
         <div class="container">
             <?php
+                //ciclo l'array faq per estrarre i gruppi
                 foreach ($faq as $gruppi) {
-                    // echo '<pre>';
-                    // var_dump($gruppi['domanda']);
-                    // echo '</pre>';
+                    //Stampo le domande all'interno del array faq
                     echo "<h2>$gruppi[domanda]</h2>";
+                    //condizione per verificare se le risposte sono stringe
                     if (is_string($gruppi['risposta'])){
                         echo "<p>$gruppi[risposta]</p>";
                     }
+                    //condizione alternativa nel caso le risposte sono un array
                     else {
                         foreach ($gruppi['risposta'] as $key => $value) {
                             echo "<p>$value</p>";
-                            // echo "<p>$key[punto1]</p>";
                         }
                     }
                 }
@@ -113,7 +93,7 @@ $faq = [
     </header>
 </body>
 </html>
-
+<!-- style css -->
 <style>
     *{
         margin: 0;
@@ -146,5 +126,7 @@ $faq = [
     }
     .active{
         color: #3367D6;
+        padding-bottom: 5px;
+        border-bottom: 3px solid #3367D6;
     }
 </style>
